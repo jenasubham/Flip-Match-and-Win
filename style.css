@@ -1,0 +1,87 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-main:#464646;
+    --bg-card:#2D2727;
+    --border-color:#efc745;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    height: 100vh;
+    background-color: var(--bg-main);
+}
+h1{
+    color: white;
+    font-size: 2rem;
+    font-family: 'Lexend Deca', sans-serif;
+}
+span{
+    color: var(--border-color);
+}
+#card-section{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1rem;
+}
+/* .card{
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--bg-card);
+    background-size: 95%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: .6rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}*/
+
+.card{
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+}
+.card,
+.back-card,
+.front-card{
+    height: 6rem;
+    width: 6rem;
+}
+.back-card,
+.front-card{
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front-card{
+    background-color: var(--border-color);
+    background-size: contain;
+    border-radius: .6rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 2rem;
+}
+.back-card{
+    transform:rotateY(180deg);
+    background-color: #6589F9;
+    border-radius: .6rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 2rem;
+    background-size: 90%;
+}
+.card:hover{
+    cursor: pointer;
+}
+.card_selected{
+    transform: rotateY(180deg);
+}
+.card_match .front-card{
+    background-color: var(--bg-card);
+} 
